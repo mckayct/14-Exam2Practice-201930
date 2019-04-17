@@ -3,8 +3,8 @@ PRACTICE Exam 2, practice_problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Colton McKay.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -44,7 +44,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4    ** tests that, taken together,
     #   would form a    ** REASONABLY GOOD test set **
@@ -60,6 +60,34 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
 
 
+    #Test 1
+    answer = practice_problem2a([10,20,30,40,50,60], 2)
+    expected = [12,22,32,42,52,62]
+    print('Expected is',expected)
+    print('Answer is', answer)
+    print('---------------------')
+
+    # Test 2
+    answer = practice_problem2a([1, 2, 3, 4, 5, 6], 2)
+    expected = [3,4,5,6,7,8]
+    print('Expected is', expected)
+    print('Answer is', answer)
+    print('---------------------')
+
+    # Test 3
+    answer = practice_problem2a([1,2], 2)
+    expected = [3,4]
+    print('Expected is', expected)
+    print('Answer is', answer)
+    print('---------------------')
+
+    # Test 4
+    answer = practice_problem2a([10, 20, 30, 40, 50, 60], 5)
+    expected = [15, 25, 35, 45, 55, 65]
+    print('Expected is', expected)
+    print('Answer is', answer)
+    print('---------------------')
+
 def practice_problem2a(sequence, delta):
     """
     What comes in:
@@ -68,8 +96,7 @@ def practice_problem2a(sequence, delta):
     What goes out:
       -- Returns a new list that is the same as the given list,
            but with each number in the list having had the given
-             delta
-           added to it (see example below)
+             delta added to it (see example below)
     Side effects: None.
     Example:
        Given the list  [2, 10, 5, -20, 8]  and the number  6,
@@ -79,13 +106,18 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     WRITE THE TESTS FIRST (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ###########################################################################
+
+    sequence_new = sequence
+    for k in range(0, len(sequence)):
+        sequence_new[k] = (sequence[k] + delta)
+    return sequence_new
 
 
 def run_test_practice_problem2b():
@@ -179,7 +211,7 @@ def practice_problem2b(sequence):
     Side effects: None.
     Examples:
        Given ['hello', 'Bye', 'ok joe']          returns 'hBo'.
-       Given ('Alice, 'Bob', 'Carson', 'Devi')   returns 'ABCD'.
+       Given ('Alice', 'Bob', 'Carson', 'Devi')   returns 'ABCD'.
        Given ('', 'tricky', '', 'one, no?', '!') returns 'to!'
        Given [] returns ''
        Given ('my very long string', 'ok', 'mmmm') returns 'mom'
@@ -187,13 +219,20 @@ def practice_problem2b(sequence):
       :type sequence: [str]
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
+
+    letters = ''
+    for k in range(len(sequence)):
+        first_let = sequence[k]
+        if type(sequence[k]) == str and len(sequence[k]) > 0:
+            letters = letters + first_let[0]
+    return letters
 
 
 ###############################################################################
